@@ -1,21 +1,18 @@
-const froyo = {
-    flavors: ['vanilla', 'strawberry', 'coffee']
-}
+const flavors = window.prompt('enter flavors', 'vanilla,vanilla, vanilla, strawberry').split(',');
+console.log(flavors);
 
+const stats = {
+    
+};
 
-
-function sumFlavors(choices){
-    let sum = 0;
-    for(let i = 0; i < choices.length; i++){
-    sum = sum + Object.values(froyo);
+for(let i = 0; i < flavors.length; i++){
+    const flavor = flavors[i];
+    if(stats[flavor] === undefined){
+    stats[flavor] = 1;
     }
-    return sum;
-}
+    else {
+        stats[flavor] = stats[flavor] + 1;
+    }
+};
 
-function createMessage(vanilla, strawberry, coffee){
-    return `You ordered ${vanilla} vanilla, ${strawberry} strawberry, ${coffee} coffee.`
-}
-const inputFlavors = window.prompt('What flavors of Froyo would you like? Separate requests with commas, please.');
-const sumOfFlavors = sumFlavors(inputFlavors);
-console.log(createMessage(inputFlavors, sumOfFlavors));
-
+console.log(stats);
